@@ -35,3 +35,4 @@ To run dev server: ``npm run dev``
 ## Contribution
 
 Developer: **Patryk Cieślak** - [Bendar Multimedia](https://bendar.eu***REMOVED*** 
+Feel free to contact me
