@@ -2,9 +2,11 @@
 
 This is a simple creator of maps. Feel free to use it or upgrade.
 
+<p align="center">
 
 ![GitHub Tag](https://img.shields.io/github/v/tag/bendarmultimedia/endarmultimedia/vue-map-maker?label=version***REMOVED***
 
+</p>
 
 ## Getting started
 To install dependencies just run command: ``npm install``
