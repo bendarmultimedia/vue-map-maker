@@ -1,4 +1,5 @@
-# Vue Map Maker 🗺
+
+#Vue Map Maker 🗺
 
 This is a simple creator of maps. Feel free to use it or upgrade.
 
