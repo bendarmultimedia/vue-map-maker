@@ -1,0 +1,13 @@
+{
+  "iconSize": [32, 32],
+  "icons": [
+    "icon 1",
+    "icon 2"
+  ],
+  "colors": [
+    "primary",
+    "secondary",
+    "accent",
+    "info"
+  ]
+}

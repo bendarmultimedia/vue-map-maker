@@ -1,0 +1,57 @@
+name: Publish Public Snapshot
+
+on:
+  push:
+    tags:
+      - 'v*'
+    branches:
+      - public
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout private repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # potrzebne, żeby tagi były dostępne
+
+      - name: Setup Git
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "actions@github.com"
+          git config --global init.defaultBranch master
+
+      - name: Create snapshot directory
+        run: |
+          rm -rf /tmp/public-repo
+          mkdir -p /tmp/public-repo
+          rsync -av --exclude='.git' ./ /tmp/public-repo/
+
+      - name: Push to public repo
+        run: |
+          cd /tmp/public-repo
+          git init
+          git add .
+
+          # commit z nazwą taga (jeśli istnieje)
+          TAG_NAME="${GITHUB_REF##*/}"
+          if [[ "$GITHUB_REF" == refs/tags/* ]]; then
+            COMMIT_MSG="Public release: $TAG_NAME"
+          else
+            COMMIT_MSG="Public sync from branch 'public' ($(date +'%F %T'))"
+          fi
+
+          git commit -m "$COMMIT_MSG"
+
+          git branch -M master
+          git remote add origin https://x-access-token:${{ secrets.PUBLIC_REPO_TOKEN }}@github.com/bendarmultimedia/vue-map-maker.git
+          git pull origin master --rebase || true   # pobierz historię publicznego repo
+          git push origin master --force
+          
+          if [[ "$GITHUB_REF" == refs/tags/* ]]; then
+            git tag "$TAG_NAME"
+            git push origin "$TAG_NAME" --force
+          fi
