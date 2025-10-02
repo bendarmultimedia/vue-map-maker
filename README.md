@@ -2,6 +2,7 @@
 #Vue Map Maker 🗺
 
 This is a simple creator of maps. Feel free to use it or upgrade.
+You can create group of map markers.
 
 <p align="center">
 
