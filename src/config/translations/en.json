@@ -1,0 +1,11 @@
+{
+  "name": "name",
+  "latitude": "latitude",
+  "longitude": "longitude",
+  "add": "add",
+  "edit": "edit",
+  "rename": "rename",
+  "remove": "remove",
+  "addMarker": "add marker",
+  "action": "action"
+}

@@ -1,0 +1,24 @@
+{
+  "markerGroup" : {
+    "id": 1,
+    "name": "New Group",
+    "icon": "MapPinIcon",
+    "selected": true,
+    "markers" : [
+      {
+        "id": 1,
+        "name": "Marker 1",
+        "lat": 52.0763898,
+        "lng": 19.4464632
+      }
+    ]
+  },
+  "mapMarker":
+  {
+    "id": 1,
+    "name": "New Marker",
+    "selected": true,
+    "draggable": true
+  }
+
+}

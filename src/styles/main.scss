@@ -1,0 +1,35 @@
+@use "tailwindcss";
+@plugin "daisyui" {
+  themes: fantasy --default, dracula --prefersdark;
+};
+
+@import "leaflet/dist/leaflet.css";
+
+html {
+  height: 100%;
+  body {
+    height: 100%;
+  }
+
+  #mapCanvas {
+    width: 100%;
+    min-height: 300px;
+    height: 100%;
+  }
+
+  #mapMaker {
+    height: 100%;
+    .theme-wrapper {
+      height: 100%;
+    }
+  }
+}
+
+[data-theme="dracula"] {
+  .leaflet-layer,
+  .leaflet-control-zoom-in,
+  .leaflet-control-zoom-out,
+  .leaflet-control-attribution {
+    filter: invert(100%) hue-rotate(210deg) brightness(95%) contrast(100%);
+  }
+}
